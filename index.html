@@ -100,7 +100,7 @@
             <div class="columns is-centered has-text-centered">
                 <div class="column is-four-fifths">
                     <div class="content has-text-justified">
-                        <p class="is-size-5">
+                        <p>
                             <strong>RoboBrain-2.5</strong> is a next-generation Embodied AI foundation model that significantly evolves its predecessor's core capabilities in general perception, spatial reasoning, and temporal modeling through extensive training on high-quality spatiotemporal data. It achieves a paradigm shift in 3D Spatial Reasoning, transitioning from 2D relative points to predicting 3D coordinates with depth information, understanding absolute metric constraints, and generating complete manipulation trajectories tailored for complex tasks with physical constraints. Furthermore, it establishes a breakthrough in Temporal Value Prediction by constructing a General Reward Modeling Method that provides dense progress tracking and multi-granular execution state estimation across varying viewpoints. This empowers VLA reinforcement learning with immediate, dense feedback signals, enabling robots to achieve high task success rates and robustness in fine-grained manipulation scenarios.
                         </p>
                         <div class="has-text-centered" style="margin: 20px 0;">
@@ -152,6 +152,530 @@
     </section>
 
 
+
+    <section class="hero is-small">
+        <div class="hero-body">
+            <div class="container is-max-desktop">
+                <div class="columns is-centered has-text-centered">
+                    <div class="column is-full">
+                        <h2 class="title is-3">
+                            <div class="text-image-container">
+                                <div>
+                                    <img src="images/video_logo.png" alt="highlight" width="40">
+                                </div>
+                                <div class="text">
+                                    <p>Demos: Dense Temporal Value Estimation</p>
+                                </div>
+                            </div>
+                        </h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Evaluation on Different Data Sources -->
+    <section class="section">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-four-fifths">
+                    <h2 class="title is-3">Evaluation on Different Data Sources</h2>
+                    <div class="content">
+                        <div class="carousel results-carousel carousel-3-items">
+                            <!-- item1 -->
+                            <div class="item">
+                                <video autoplay controls muted loop preload="metadata" width="100%">
+                                    <source src="https://robo-dopamine.github.io/assets/videos/grm_demo_1.mp4" type="video/mp4">
+                                </video>
+                                <p>Fold the Pants (AgiLex).</p>
+                            </div>
+
+                            <div class="item">
+                                <video autoplay controls muted loop preload="metadata" width="100%">
+                                    <source src="https://robo-dopamine.github.io/assets/videos/grm_demo_2.mp4" type="video/mp4">
+                                </video>
+                                <p>Clean the Table (AgiLex).</p>
+                            </div>
+
+                            <div class="item">
+                                <video autoplay controls muted loop preload="metadata" width="100%">
+                                    <source src="https://robo-dopamine.github.io/assets/videos/grm_demo_3.mp4" type="video/mp4">
+                                </video>
+                                <p>Fill the Mug (RoboCasa).</p>
+                            </div>
+
+                            <div class="item">
+                                <video autoplay controls muted loop preload="metadata" width="100%">
+                                    <source src="https://robo-dopamine.github.io/assets/videos/grm_demo_4.mp4" type="video/mp4">
+                                </video>
+                                <p>Close the Drawer (RoboCasa).</p>
+                            </div>
+
+                            <!-- item2 -->
+                            <div class="item">
+                                <video autoplay controls muted loop preload="metadata" width="100%">
+                                    <source src="https://robo-dopamine.github.io/assets/videos/grm_demo_5.mp4" type="video/mp4">
+                                </video>
+                                <p>Place Bowl on the Plate (LIBERO).</p>
+                            </div>
+
+                            <div class="item">
+                                <video autoplay controls muted loop preload="metadata" width="100%">
+                                    <source src="https://robo-dopamine.github.io/assets/videos/grm_demo_6.mp4" type="video/mp4">
+                                </video>
+                                <p>Open the Drawer (LIBERO).</p>
+                            </div>
+
+                            <div class="item">
+                                <video autoplay controls muted loop preload="metadata" width="100%">
+                                    <source src="https://robo-dopamine.github.io/assets/videos/grm_demo_7.mp4" type="video/mp4">
+                                </video>
+                                <p>Stack the Blocks (Flanka).</p>
+                            </div>
+
+                            <div class="item">
+                                <video autoplay controls muted loop preload="metadata" width="100%">
+                                    <source src="https://robo-dopamine.github.io/assets/videos/grm_demo_8.mp4" type="video/mp4">
+                                </video>
+                                <p>Stack the Blocks (Human).</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Challenging Real-world Rollout -->
+    <section class="section">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-four-fifths">
+                    <h2 class="title is-3">A Challenging Real-world Rollout</h2>
+                    <figure>
+                        <img src="https://robo-dopamine.github.io/assets/images/funny_ood.png" alt="Challenging Real-world Rollout" style="width: 100%;">
+                        <figcaption class="has-text-justified mt-3">
+                            We plot the reference reward from human annotations, the VLAC baseline, and our <strong>RoboBrain 2.5</strong> along the same trajectory. 
+                            Our model tracks the reference signal more faithfully, sharply penalizing <strong>incorrect insertions, low positions, and misalignments</strong>, 
+                            and only assigning high reward near successful task completion.
+                        </figcaption>
+                    </figure>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Real-World RL DEMOs -->
+    <section class="section">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-four-fifths">
+                    <h2 class="title is-3">Real-World RL DEMOs</h2>
+                    <div class="columns is-multiline">
+                        <div class="column is-one-third">
+                            <video autoplay controls muted loop preload="metadata" width="100%">
+                                <source src="https://robo-dopamine.github.io/assets/videos/real_demo_1.mp4" type="video/mp4">
+                            </video>
+                            <p>Insert the Square Block.</p>
+                        </div>
+
+                        <div class="column is-one-third">
+                            <video autoplay controls muted loop preload="metadata" width="100%">
+                                <source src="https://robo-dopamine.github.io/assets/videos/real_demo_2.mp4" type="video/mp4">
+                            </video>
+                            <p>Trigger the Circuit.</p>
+                        </div>
+
+                        <div class="column is-one-third">
+                            <video autoplay controls muted loop preload="metadata" width="100%">
+                                <source src="https://robo-dopamine.github.io/assets/videos/real_demo_3.mp4" type="video/mp4">
+                            </video>
+                            <p>Cap the Pen.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Robustness to Artificial Disturbance -->
+    <section class="section">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-four-fifths">
+                    <h2 class="title is-3">Robustness to Artificial Disturbance</h2>
+                    <figure>
+                        <img src="https://robo-dopamine.github.io/assets/images/analysis.png" alt="Robustness to Artificial Disturbance" style="width: 100%;">
+                        <figcaption class="has-text-justified mt-3">
+                            We visualize a rollout of the converged policy (Insert the Square Block, success rate > 95%) under human interference using <strong>RoboBrain 2.5</strong>.
+                            Each sub-figure shows the third-person view, the ego-centric view, and the real-time inference (Top: Hop, Bottom: Progress).
+                            <strong>(a) Artificial Disturbance Position:</strong> A human hand intervenes and shifts the target board while the robot attempts to approach.
+                            <strong>(b) Fall Into Misalignment:</strong> The robot misses the new position. Note that the Progress curve drops significantly (indicated by the red dot in the bottom inset), reflecting the failure state.
+                            <strong>(c) Misalignment Recovery:</strong> The policy reacts to the visual feedback and the drop in reward, adjusting the end-effector position.
+                            <strong>(d) Move to the top:</strong> The robot realigns directly above the target slot.
+                            <strong>(e) Align with the Slot:</strong> Precise fine-tuning before insertion.
+                            <strong>(f) Successful Insertion:</strong> The task is completed, with the progress estimation reaching its peak.
+                        </figcaption>
+                    </figure>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demos: Native 3D Spatial Reasoning -->
+    <section class="hero is-small">
+        <div class="hero-body">
+            <div class="container is-max-desktop">
+                <div class="columns is-centered has-text-centered">
+                    <div class="column is-full">
+                        <h2 class="title is-3">
+                            <div class="text-image-container">
+                                <div>
+                                    <img src="images/video_logo.png" alt="highlight" width="40">
+                                </div>
+                                <div class="text">
+                                    <p>Demos: Native 3D Spatial Reasoning</p>
+                                </div>
+                            </div>
+                        </h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TraceSpatial-Bench Results -->
+    <section class="section">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-four-fifths">
+                    <h2 class="title is-3"><i>TraceSpatial-Bench</i> Results</h2>
+                    <div class="content has-text-justified">
+                        <p>
+                            <b>
+                                This demo shows the visualization of the performance of <strong>RoboBrain 2.5</strong> on <i>TraceSpatial-Bench</i>.
+                                <span style="color: #E4A902;">Yellow masks</span> mark the target objects, and
+                                <span style="color: #EA80FC;">pink 3D boxes</span> mark correct end regions. Despite similar 2D projections, our model yields more accurate spatial traces than strong general VLMs, which often
+                                produce floating or colliding traces due to inaccurate depth estimation. <span style="color: #209CEF;">Leveraging richer geometric cues further improves performance</span>.
+                            </b>
+                        </p>
+                    </div>
+
+            <!-- Carousel Layout for TraceSpatial-Bench Results -->
+            <div class="carousel results-carousel carousel-2-items">
+                 <div class="item">
+                            <img src="https://zhoues.github.io/RoboTracer/assets/images/pcd_img/vis_merged_0.png" alt="Result 0" style="width:100%">
+                         </div>
+                         <div class="item">
+                            <img src="https://zhoues.github.io/RoboTracer/assets/images/pcd_img/vis_merged_1.png" alt="Result 1" style="width:100%">
+                         </div>
+                         <div class="item">
+                            <img src="https://zhoues.github.io/RoboTracer/assets/images/pcd_img/vis_merged_4.png" alt="Result 4" style="width:100%">
+                         </div>
+                         <div class="item">
+                            <img src="https://zhoues.github.io/RoboTracer/assets/images/pcd_img/vis_merged_18.png" alt="Result 18" style="width:100%">
+                         </div>
+                         <div class="item">
+                            <img src="https://zhoues.github.io/RoboTracer/assets/images/pcd_img/vis_merged_23.png" alt="Result 23" style="width:100%">
+                         </div>
+                         <div class="item">
+                            <img src="https://zhoues.github.io/RoboTracer/assets/images/pcd_img/vis_merged_25.png" alt="Result 25" style="width:100%">
+                         </div>
+                         <div class="item">
+                            <img src="https://zhoues.github.io/RoboTracer/assets/images/pcd_img/vis_merged_39.png" alt="Result 39" style="width:100%">
+                         </div>
+                         <div class="item">
+                            <img src="https://zhoues.github.io/RoboTracer/assets/images/pcd_img/vis_merged_51.png" alt="Result 51" style="width:100%">
+                         </div>
+                         <div class="item">
+                            <img src="https://zhoues.github.io/RoboTracer/assets/images/pcd_img/vis_merged_52.png" alt="Result 52" style="width:100%">
+                         </div>
+                         <div class="item">
+                            <img src="https://zhoues.github.io/RoboTracer/assets/images/pcd_img/vis_merged_99.png" alt="Result 99" style="width:100%">
+                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RoboTwin 2.0 Execution Demo -->
+    <section class="section">
+        <div class="container is-max-desktop">
+            <h2 class="title is-3 has-text-centered">RoboTwin 2.0 Execution Demo</h2>
+            <div class="content has-text-justified">
+                <p>
+                    <b>
+                        The demo shows how robotic arms follow 3D spatial traces generated by <strong>RoboBrain 2.5</strong> to successfully complete a diverse set of manipulation tasks, demonstrating its <span style="color: #209CEF;">strong spatial reasoning ability and effective support for embodied task execution</span>.
+                    </b>
+                </p>
+            </div>
+
+            <div class="carousel results-carousel carousel-3-items">
+                <div class="item">
+                     <video autoplay controls muted loop preload="metadata" width="100%">
+                        <source src="https://zhoues.github.io/RoboTracer/assets/videos/robotwin/eval_place_bread_skillet.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="item">
+                     <video autoplay controls muted loop preload="metadata" width="100%">
+                        <source src="https://zhoues.github.io/RoboTracer/assets/videos/robotwin/eval_place_burger_fries.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="item">
+                     <video autoplay controls muted loop preload="metadata" width="100%">
+                        <source src="https://zhoues.github.io/RoboTracer/assets/videos/robotwin/eval_place_cans_plasticbox.mp4" type="video/mp4">
+                    </video>
+                </div>
+                 <div class="item">
+                     <video autoplay controls muted loop preload="metadata" width="100%">
+                        <source src="https://zhoues.github.io/RoboTracer/assets/videos/robotwin/eval_blocks_ranking_rgb.mp4" type="video/mp4">
+                    </video>
+                </div>
+                 <div class="item">
+                     <video autoplay controls muted loop preload="metadata" width="100%">
+                        <source src="https://zhoues.github.io/RoboTracer/assets/videos/robotwin/eval_blocks_ranking_size.mp4" type="video/mp4">
+                    </video>
+                </div>
+                 <div class="item">
+                     <video autoplay controls muted loop preload="metadata" width="100%">
+                        <source src="https://zhoues.github.io/RoboTracer/assets/videos/robotwin/eval_click_bell.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Spatial Tracing in Cluttered Scenes -->
+    <section class="section">
+        <div class="container is-max-desktop">
+            <h2 class="title is-3 has-text-centered">Spatial Tracing in Cluttered Scenes</h2>
+             <div class="content has-text-justified">
+                 <p><b>Visualizations of spatial tracing in complex, cluttered environments using <strong>RoboBrain 2.5</strong>.</b></p>
+            </div>
+             <div class="carousel results-carousel carousel-3-items">
+                 <div class="item"><img src="https://zhoues.github.io/RoboTracer/benchmark_vis_image/small_v_1.png" alt="Small v1" style="width:100%"></div>
+                <div class="item"><img src="https://zhoues.github.io/RoboTracer/benchmark_vis_image/small_v_2.png" alt="Small v2" style="width:100%"></div>
+                <div class="item"><img src="https://zhoues.github.io/RoboTracer/benchmark_vis_image/small_v_3.png" alt="Small v3" style="width:100%"></div>
+                <div class="item"><img src="https://zhoues.github.io/RoboTracer/benchmark_vis_image/small_v_4.png" alt="Small v4" style="width:100%"></div>
+                <div class="item"><img src="https://zhoues.github.io/RoboTracer/benchmark_vis_image/small_v_5.png" alt="Small v5" style="width:100%"></div>
+                <div class="item"><img src="https://zhoues.github.io/RoboTracer/benchmark_vis_image/small_v_6.png" alt="Small v6" style="width:100%"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- More Real-world Demos -->
+    <section class="section">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-four-fifths">
+                    <h2 class="title is-3">More Real-world Demos</h2>
+                    <div class="content has-text-justified">
+                         <p>
+                            <b>
+                                Demos below show that <strong>RoboBrain 2.5</strong> can handle challenging long-horizon <span style="color: #209CEF;">spatial tracing</span> tasks
+                                requiring <span style="color: #209CEF;">complex multi-step metric-grounded reasoning</span>
+                                in <span style="color: #E4A902;">cluttered and dynamic environments</span>
+                                by integrating various control policies diverse robots.
+                            </b>
+                        </p>
+                    </div>
+                     <div class="columns is-centered">
+                         <div class="column is-three-fifths">
+                            <video autoplay controls muted loop preload="metadata" width="100%">
+                                <source src="https://zhoues.github.io/RoboTracer/assets/videos/Demo1_UR5_human_disturbance_Low.mp4" type="video/mp4">
+                            </video>
+                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RoboBrain 2.0 Videos -->
+    <section class="hero is-small">
+        <div class="hero-body">
+            <div class="container is-max-desktop">
+                <div class="columns is-centered has-text-centered">
+                    <div class="column is-full">
+                        <h2 class="title is-3">
+                            <div class="text-image-container">
+                                <div>
+                                    <img src="images/video_logo.png" alt="highlight" width="40">
+                                </div>
+                                <div class="text">
+                                    <p>Demos: Spatial Reasoning & Core Capabilities</p>
+                                </div>
+                            </div>
+                        </h2>
+
+                        <!-- Video Grid Container -->
+                        <div class="video-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; margin-top: 30px;">
+
+                            <!-- Video 1 -->
+                            <div class="video-item">
+                                <div class="publication-video" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+                                    <iframe src="https://www.youtube.com/embed/s1oXx1mBO6I?rel=0&amp;showinfo=0"
+                                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+                                        frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                                </div>
+                                <div class="video-description" style="margin-top: 15px; text-align: left;">
+                                    <p style="font-weight: bold; margin-bottom: 5px;">System Stability</p>
+                                    <p style="font-size: 0.85em; color: #888; font-style: italic;">This video demonstrates the model's referential ability in color recognition and its stability in continuous operation.</p>
+                                </div>
+                            </div>
+
+                            <!-- Video 2 -->
+                            <div class="video-item">
+                                <div class="publication-video" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+                                    <iframe src="https://www.youtube.com/embed/t7R_Jy430eI?rel=0&amp;showinfo=0"
+                                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+                                        frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                                </div>
+                                <div class="video-description" style="margin-top: 15px; text-align: left;">
+                                    <p style="font-weight: bold; margin-bottom: 5px;">Real-time Scene Adaptation</p>
+                                    <p style="font-size: 0.85em; color: #888; font-style: italic;">This video demonstrate the model's rapid scene adaptation ability and its capability to judge object proximity, recognize orientation, and determine distance.</p>
+                                </div>
+                            </div>
+
+                            <!-- Video 3 -->
+                            <div class="video-item">
+                                <div class="publication-video" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+                                    <iframe src="https://www.youtube.com/embed/-jbXjJbNP9Q?rel=0&amp;showinfo=0"
+                                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+                                        frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                                </div>
+                                <div class="video-description" style="margin-top: 15px; text-align: left;">
+                                    <p style="font-weight: bold; margin-bottom: 5px;">Real-time Voice Interruption Adjustment</p>
+                                    <p style="font-size: 0.85em; color: #888; font-style: italic;">This video demonstrates the model's capabilities in object spatial relationship recognition, multi-step reasoning, rapid interactive reasoning, and real-time interruption adjustment.</p>
+                                </div>
+                            </div>
+
+                            <!-- Video 4 -->
+                            <div class="video-item">
+                                <div class="publication-video" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+                                    <iframe src="https://www.youtube.com/embed/pnGeEqS9L6Y?rel=0&amp;showinfo=0"
+                                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+                                        frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                                </div>
+                                <div class="video-description" style="margin-top: 15px; text-align: left;">
+                                    <p style="font-weight: bold; margin-bottom: 5px;">Part-level Orientation-related Referring</p>
+                                    <p style="font-size: 0.85em; color: #888; font-style: italic;">This video demonstrates the model's capabilities in object spatial height recognition and part-level orientation-related region identification.</p>
+                                </div>
+                            </div>
+
+                            <!-- Video 5 -->
+                            <div class="video-item">
+                                <div class="publication-video" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+                                    <iframe src="https://www.youtube.com/embed/Zxh_fTiBP1Y?rel=0&amp;showinfo=0"
+                                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+                                        frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                                </div>
+                                <div class="video-description" style="margin-top: 15px; text-align: left;">
+                                    <p style="font-weight: bold; margin-bottom: 5px;">Functionality-oriented Referring</p>
+                                    <p style="font-size: 0.85em; color: #888; font-style: italic;">This video demonstrating the model's capabilities in object spatial height recognition and illuminated area identification.</p>
+                                </div>
+                            </div>
+
+                            <!-- Video 6 -->
+                            <div class="video-item">
+                                <div class="publication-video" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+                                    <iframe src="https://www.youtube.com/embed/-gMuS_AY4I4?rel=0&amp;showinfo=0"
+                                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+                                        frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                                </div>
+                                <div class="video-description" style="margin-top: 15px; text-align: left;">
+                                    <p style="font-weight: bold; margin-bottom: 5px;">Multi-step Spatial Referring with Reasoning</p>
+                                    <p style="font-size: 0.85em; color: #888; font-style: italic;">This video demonstrates the model's object spatial relationship recognition and multi-step spaital referring with reasoning capability.</p>
+                                </div>
+                            </div>
+
+                            <!-- Video 7 -->
+                            <div class="video-item">
+                                <div class="publication-video" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+                                    <iframe src="https://www.youtube.com/embed/gx0JnpAqQuI?rel=0&amp;showinfo=0"
+                                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+                                        frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                                </div>
+                                <div class="video-description" style="margin-top: 15px; text-align: left;">
+                                    <p style="font-weight: bold; margin-bottom: 5px;">Structured Arrangement</p>
+                                    <p style="font-size: 0.85em; color: #888; font-style: italic;">This video demonstrates the model's ability to understand spatial relationships and pattern reasoning between objects.</p>
+                                </div>
+                            </div>
+
+                            <!-- Video 8 -->
+                            <div class="video-item">
+                                <div class="publication-video" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+                                    <iframe src="https://www.youtube.com/embed/tsE-7hAvi9I?rel=0&amp;showinfo=0"
+                                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+                                        frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                                </div>
+                                <div class="video-description" style="margin-top: 15px; text-align: left;">
+                                    <p style="font-weight: bold; margin-bottom: 5px;">Mobile Manipulation</p>
+                                    <p style="font-size: 0.85em; color: #888; font-style: italic;">This video demonstrates the model's ability to control a humanoid for both tabletop object manipulation and indoor navigation.</p>
+                                </div>
+                            </div>
+
+                            <!-- Video 9 -->
+                            <div class="video-item">
+                                <div class="publication-video" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+                                    <iframe src="https://www.youtube.com/embed/Qzl8T7dNLiw?rel=0&amp;showinfo=0"
+                                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+                                        frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                                </div>
+                                <div class="video-description" style="margin-top: 15px; text-align: left;">
+                                    <p style="font-weight: bold; margin-bottom: 5px;">Object Attribute Recognition</p>
+                                    <p style="font-size: 0.85em; color: #888; font-style: italic;">This video demonstrates the model's ability to accurately recognize and differentiate objects by their sizes and its stability in continuous operation.</p>
+                                </div>
+                            </div>
+
+                            <!-- Video 10 -->
+                            <div class="video-item">
+                                <div class="publication-video" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+                                    <iframe src="https://www.youtube.com/embed/9FYZwMKoA00?rel=0&amp;showinfo=0"
+                                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+                                        frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                                </div>
+                                <div class="video-description" style="margin-top: 15px; text-align: left;">
+                                    <p style="font-weight: bold; margin-bottom: 5px;">Object Affordance Localization</p>
+                                    <p style="font-size: 0.85em; color: #888; font-style: italic;">This video demonstrates the model's capability in object affordance prediction (grasping the handle of the mug) as well as locating objects based on their colors and distances.</p>
+                                </div>
+                            </div>
+
+                            <!-- Video 11 -->
+                            <div class="video-item">
+                                <div class="publication-video" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+                                    <iframe src="https://www.youtube.com/embed/X-8svw80UTc?rel=0&amp;showinfo=0"
+                                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+                                        frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                                </div>
+                                <div class="video-description" style="margin-top: 15px; text-align: left;">
+                                    <p style="font-weight: bold; margin-bottom: 5px;">Spatial Relations Reasoning</p>
+                                    <p style="font-size: 0.85em; color: #888; font-style: italic;">This video demonstrates the model's spatial reasoning capabilities, including distance perception (nearest), position awareness (left and front), and free space localization.</p>
+                                </div>
+                            </div>
+
+                            <!-- Video 12 -->
+                            <div class="video-item">
+                                <div class="publication-video" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+                                    <iframe src="https://www.youtube.com/embed/rZ0W3ymA3EU?rel=0&amp;showinfo=0"
+                                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+                                        frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                                </div>
+                                <div class="video-description" style="margin-top: 15px; text-align: left;">
+                                    <p style="font-weight: bold; margin-bottom: 5px;">Spatial Referencing and Vacancy Detection</p>
+                                    <p style="font-size: 0.85em; color: #888; font-style: italic;">This video demonstrates the model's object referencing capability based on spatial relations and its ability to locate vacant areas in 3D space.</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
     <!-- Training & Evaluation Section -->
     <section class="section">
         <div class="container is-max-desktop">
@@ -187,7 +711,6 @@
         </div>
     </section>
 
-    
     <section class="section" id="Citation">
             <div class="container is-max-desktop content">
                 <h2 class="title">Citation</h2>
