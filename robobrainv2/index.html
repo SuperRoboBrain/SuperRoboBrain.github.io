@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>RoboBrain</title>
+    <meta name="description" content="RoboBrain2.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="icon" type="image/png" href="./images/logo.png">
+
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+    <link rel="stylesheet" href="./static/css/bulma.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="./static/css/index.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="./static/js/fontawesome.all.min.js"></script>
+    <script src="./static/js/bulma-carousel.min.js"></script>
+    <script src="./static/js/bulma-slider.min.js"></script>
+    <script src="./static/js/index.js"></script>
+</head>
+
+
+<body onload="SubmissionVidep();">
+    <section class="hero">
+        <div class="hero-body">
+            <div class="container is-max-desktop">
+                <div class="columns is-centered">
+                    <div class="column has-text-centered">
+                        <h1 class="title is-2 publication-title" style="display: flex; align-items: center; padding-left: 40px;">
+                            <img src="images/logo.png" alt="Logo"
+                                 style="height: 3rem; margin-left: -80px; margin-right: 0px; flex-shrink: 0;">
+                            <span style="display: inline-block;">
+                              RoboBrain 2.0: See Better. Think Harder. Do Smarter.
+                              <!-- RoboBrain v2: Faster. Smarter. Stronger. -->
+                            </span>
+                          </h1>
+                        
+                        <div class="is-size-4 publication-authors">
+                            <span class="author-block">
+                                <a target="_blank" href="">BAAI RoboBrain Team</a>
+                            </span>
+                        </div>
+                        <div class="column has-text-centered">
+                            <!-- ArXiv link -->
+                            <span class="link-block">
+                                <a target="_blank" href="https://arxiv.org/abs/2507.02029" class="external-link button is-normal is-rounded is-dark">
+                                    <span class="icon"><i class="fas fa-file"></i></span>
+                                    <span>Technical Report</span>
+                                </a>
+                            </span>
+                            <!-- Code Link. -->
+                            <span class="link-block">
+                                <a target="_blank" href="https://github.com/FlagOpen/RoboBrain2.0" class="external-link button is-normal is-rounded is-dark">
+                                    <span class="icon"><i class="fab fa-github"></i></span>
+                                    <span>Code</span>
+                                </a>
+                            </span>
+                            <span class="link-block">
+                            <a target="_blank" href="https://huggingface.co/BAAI/RoboBrain2.0-7B" class="external-link button is-normal is-rounded is-dark">
+                                <span class="icon"><i class="fas fa-check"></i></span>
+                                <span>Checkpoints</span>
+                            </a>
+                        </span>
+                            <!-- <span class="link-block">
+                                <a target="_blank" href="https://ei2.baai.ac.cn/home" class="external-link button is-normal is-rounded is-dark">
+                                    <span class="icon"><i class="fas fa-laptop"></i></span>
+                                    <span>Demo</span>
+                                </a>
+                            </span> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="section">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-four-fifths">
+                    <div class="content has-text-justified">
+                        <p class="is-size-5">
+                            We are excited to introduce <strong>RoboBrain2.0</strong>, the most powerful open-source embodied brain model to date. Compared to its predecessor, RoboBrain 1.0, our latest version are designed to unify perception, reasoning, and planning for complex embodied tasks in physical environments. It comes in two variants: a lightweight 7B model and a full-scale 32B model, featuring a heterogeneous architecture with a vision encoder and a language model. Despite its compact size, RoboBrain 2.0 achieves strong performance 
+                            across a wide spectrum of embodied reasoning tasks. On both spatial and temporal benchmarks, the 32B variant achieves leading results in most cases, surpassing prior open-source and proprietary models.
+                            In particular, it supports key real-world embodied intelligence capabilities, including spatial understanding (e.g., affordance prediction, spatial referring, trajectory forecasting) and temporal decision-making (e.g., closed-loop interaction, multi-agent long-horizon planning, and real-time scene memory). This report details the model architecture, data construction, multi-stage training strategies, infrastructure and practical applications. We hope RoboBrain 2.0 advances embodied AI research and serves as a practical step toward building generalist embodied agents.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+
+    <!-- <section class="section"> -->
+
+
+        <div class="columns is-centered">
+            <div class="container">
+              <div class="content has-text-centered">
+                <div class="box m-5" >
+                  <div class="content has-text-centered">
+                    <h2 class="title is-3">Performance</h2>
+
+
+              <!-- 第一张图 -->
+              <figure style="margin-bottom: 3rem;">
+                <img src="images/results.png" alt="Benchmark results" style="width: 100%;">
+      
+              <!-- 第二张图 -->
+              <figure>
+                <img src="images/result_table_1.png" alt="Task capabilities" style="width: 100%;">
+                <figcaption class="has-text-justified is-size-6 mt-3">
+                    <strong>Benchmark comparison across spatial reasoning and temporal task planning.</strong>
+                    RoboBrain2.0-32B achieves state-of-the-art (SOTA) or near-SOTA performance on <strong>nine spatial reasoning benchmarks</strong> and <strong>three temporal reasoning benchmarks</strong>.
+                    It not only outperforms leading open-source models such as Cosmos-Reason1 and Qwen2.5-VL, but also surpasses closed-source models like Gemini 2.5 Pro, o4-mini and Claude Sonnet 4.
+                  </figcaption>
+                </figure>
+
+                <figure>
+                <img src="images/result_table_2.png" alt="Task capabilities" style="width: 100%;">
+                <figcaption class="has-text-justified is-size-6 mt-3">
+                    <strong>Benchmark comparison across spatial reasoning and temporal task planning.</strong>
+                    RoboBrain2.0-32B achieves state-of-the-art (SOTA) or near-SOTA performance on <strong>nine spatial reasoning benchmarks</strong> and <strong>three temporal reasoning benchmarks</strong>.
+                    It not only outperforms leading open-source models such as Cosmos-Reason1 and Qwen2.5-VL, but also surpasses closed-source models like Gemini 2.5 Pro, o4-mini and Claude Sonnet 4.
+                  </figcaption>
+                </figure>
+
+                <figure>
+                <img src="images/result_table_3.png" alt="Task capabilities" style="width: 100%;">
+                <figcaption class="has-text-justified is-size-6 mt-3">
+                    <strong>Benchmark comparison across spatial reasoning and temporal task planning.</strong>
+                    RoboBrain2.0-32B achieves state-of-the-art (SOTA) or near-SOTA performance on <strong>nine spatial reasoning benchmarks</strong> and <strong>three temporal reasoning benchmarks</strong>.
+                    It not only outperforms leading open-source models such as Cosmos-Reason1 and Qwen2.5-VL, but also surpasses closed-source models like Gemini 2.5 Pro, o4-mini and Claude Sonnet 4.
+                  </figcaption>
+                </figure>
+
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+      
+<!-- 
+      
+            </div>
+          </div>
+        </div>
+      </section>
+      
+       -->
+
+    <div class="columns is-centered">
+        <div class="container">
+          <div class="content has-text-centered">
+            <div class="box m-5" >
+              <div class="content has-text-centered">
+                <h2 class="title is-3">Architecture</h2>
+                <figure>
+                    <img src="images/arch.png" alt="teaser" width="90%">
+
+                    <figcaption>
+                        <strong>Architecture of RoboBrain2.0.</strong>
+                        The model supports <strong>multi-image</strong>, <strong>long video</strong>, and <strong>high-resolution visual inputs</strong>, along with complex task instructions and structured <strong>scene graphs</strong> on the language side. Visual inputs are processed via a Vision Encoder and MLP Projector, while textual inputs are tokenized into a unified token stream. All inputs are fed into a <strong>LLM Decoder</strong> that performs <strong>long-chain-of-thought reasoning</strong> and outputs structured plans, spatial relations, and both <strong>relative</strong> and <strong>absolute coordinates</strong>.
+                    </figcaption>
+                </figure>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="columns is-centered">
+        <div class="container">
+          <div class="content has-text-centered">
+            <div class="box m-5" >
+              <div class="content has-text-centered">
+                <h2 class="title is-3">Task Capabilities</h2>
+                <figure>
+                    <img src="images/visualization.png" alt="teaser" width="90%">
+                    <figcaption>
+                        <strong>Task Capabilities of RoboBrain2.0.</strong>
+                        RoboBrain2.0 supports <strong>interactive reasoning</strong> with long-horizon planning and closed-loop feedback, 
+                        <strong>spatial perception</strong> for precise point and bbox prediction from complex instructions, 
+                        <strong>temporal perception</strong> for future trajectory estimation, 
+                        and <strong>scene reasoning</strong> through real-time structured memory construction and update.
+                    </figcaption>
+                </figure>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+<!-- YouTube Video Grid -->
+<section class="hero is-small">
+    <div class="hero-body">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-full">
+                    <div class="content">
+                        <h2>
+                            <div class="text-image-container title is-3">
+                                <div>
+                                    <img src="images/video_logo.png" alt="highlight" width="40">
+                                </div>
+                                <div class="text">
+                                    <p>Demo Videos</p>
+                                </div>
+                            </div>
+                        </h2>
+
+                        <!-- Video Grid Container -->
+                        <div class="video-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; margin-top: 30px;">
+
+                            <!-- Video 1 -->
+                            <div class="video-item">
+                                <div class="publication-video" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+                                    <iframe src="https://www.youtube.com/embed/s1oXx1mBO6I?rel=0&amp;showinfo=0"
+                                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+                                        frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                                </div>
+                                <div class="video-description" style="margin-top: 15px; text-align: left;">
+                                    <p style="font-weight: bold; margin-bottom: 5px;">System Stability</p>
+                                    <p style="font-size: 0.85em; color: #888; font-style: italic;">This video demonstrates the model's referential ability in color recognition and its stability in continuous operation.</p>
+                                </div>
+                            </div>
+
+                            <!-- Video 2 -->
+                            <div class="video-item">
+                                <div class="publication-video" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+                                    <iframe src="https://www.youtube.com/embed/t7R_Jy430eI?rel=0&amp;showinfo=0"
+                                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+                                        frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                                </div>
+                                <div class="video-description" style="margin-top: 15px; text-align: left;">
+                                    <p style="font-weight: bold; margin-bottom: 5px;">Real-time Scene Adaptation</p>
+                                    <p style="font-size: 0.85em; color: #888; font-style: italic;">This video demonstrate the model's rapid scene adaptation ability and its capability to judge object proximity, recognize orientation, and determine distance.</p>
+                                </div>
+                            </div>
+
+                            <!-- Video 3 -->
+                            <div class="video-item">
+                                <div class="publication-video" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+                                    <iframe src="https://www.youtube.com/embed/-jbXjJbNP9Q?rel=0&amp;showinfo=0"
+                                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+                                        frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                                </div>
+                                <div class="video-description" style="margin-top: 15px; text-align: left;">
+                                    <p style="font-weight: bold; margin-bottom: 5px;">Real-time Voice Interruption Adjustment</p>
+                                    <p style="font-size: 0.85em; color: #888; font-style: italic;">This video demonstrates the model's capabilities in object spatial relationship recognition, multi-step reasoning, rapid interactive reasoning, and real-time interruption adjustment.</p>
+                                </div>
+                            </div>
+
+                            <!-- Video 4 -->
+                            <div class="video-item">
+                                <div class="publication-video" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+                                    <iframe src="https://www.youtube.com/embed/pnGeEqS9L6Y?rel=0&amp;showinfo=0"
+                                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+                                        frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                                </div>
+                                <div class="video-description" style="margin-top: 15px; text-align: left;">
+                                    <p style="font-weight: bold; margin-bottom: 5px;">Part-level Orientation-related Referring</p>
+                                    <p style="font-size: 0.85em; color: #888; font-style: italic;">This video demonstrates the model's capabilities in object spatial height recognition and part-level orientation-related region identification.</p>
+                                </div>
+                            </div>
+
+                            <!-- Video 5 -->
+                            <div class="video-item">
+                                <div class="publication-video" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+                                    <iframe src="https://www.youtube.com/embed/Zxh_fTiBP1Y?rel=0&amp;showinfo=0"
+                                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+                                        frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                                </div>
+                                <div class="video-description" style="margin-top: 15px; text-align: left;">
+                                    <p style="font-weight: bold; margin-bottom: 5px;">Functionality-oriented Referring</p>
+                                    <p style="font-size: 0.85em; color: #888; font-style: italic;">This video demonstrating the model's capabilities in object spatial height recognition and illuminated area identification.</p>
+                                </div>
+                            </div>
+
+                            <!-- Video 6 -->
+                            <div class="video-item">
+                                <div class="publication-video" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+                                    <iframe src="https://www.youtube.com/embed/-gMuS_AY4I4?rel=0&amp;showinfo=0"
+                                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+                                        frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                                </div>
+                                <div class="video-description" style="margin-top: 15px; text-align: left;">
+                                    <p style="font-weight: bold; margin-bottom: 5px;">Multi-step Spatial Referring with Reasoning</p>
+                                    <p style="font-size: 0.85em; color: #888; font-style: italic;">This video demonstrates the model's object spatial relationship recognition and multi-step spaital referring with reasoning capability.</p>
+                                </div>
+                            </div>
+
+                            <!-- Video 7 -->
+                            <div class="video-item">
+                                <div class="publication-video" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+                                    <iframe src="https://www.youtube.com/embed/gx0JnpAqQuI?rel=0&amp;showinfo=0"
+                                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+                                        frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                                </div>
+                                <div class="video-description" style="margin-top: 15px; text-align: left;">
+                                    <p style="font-weight: bold; margin-bottom: 5px;">Structured Arrangement</p>
+                                    <p style="font-size: 0.85em; color: #888; font-style: italic;">This video demonstrates the model's ability to understand spatial relationships and pattern reasoning between objects.</p>
+                                </div>
+                            </div>
+
+                            <!-- Video 8 -->
+                            <div class="video-item">
+                                <div class="publication-video" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+                                    <iframe src="https://www.youtube.com/embed/tsE-7hAvi9I?rel=0&amp;showinfo=0"
+                                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+                                        frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                                </div>
+                                <div class="video-description" style="margin-top: 15px; text-align: left;">
+                                    <p style="font-weight: bold; margin-bottom: 5px;">Mobile Manipulation</p>
+                                    <p style="font-size: 0.85em; color: #888; font-style: italic;">This video demonstrates the model's ability to control a humanoid for both tabletop object manipulation and indoor navigation.</p>
+                                </div>
+                            </div>
+
+                            <!-- Video 9 -->
+                            <div class="video-item">
+                                <div class="publication-video" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+                                    <iframe src="https://www.youtube.com/embed/Qzl8T7dNLiw?rel=0&amp;showinfo=0"
+                                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+                                        frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                                </div>
+                                <div class="video-description" style="margin-top: 15px; text-align: left;">
+                                    <p style="font-weight: bold; margin-bottom: 5px;">Object Attribute Recognition</p>
+                                    <p style="font-size: 0.85em; color: #888; font-style: italic;">This video demonstrates the model's ability to accurately recognize and differentiate objects by their sizes and its stability in continuous operation.</p>
+                                </div>
+                            </div>
+
+                            <!-- Video 10 -->
+                            <div class="video-item">
+                                <div class="publication-video" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+                                    <iframe src="https://www.youtube.com/embed/9FYZwMKoA00?rel=0&amp;showinfo=0"
+                                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+                                        frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                                </div>
+                                <div class="video-description" style="margin-top: 15px; text-align: left;">
+                                    <p style="font-weight: bold; margin-bottom: 5px;">Object Affordance Localization</p>
+                                    <p style="font-size: 0.85em; color: #888; font-style: italic;">This video demonstrates the model's capability in object affordance prediction (grasping the handle of the mug) as well as locating objects based on their colors and distances.</p>
+                                </div>
+                            </div>
+
+                            <!-- Video 11 -->
+                            <div class="video-item">
+                                <div class="publication-video" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+                                    <iframe src="https://www.youtube.com/embed/X-8svw80UTc?rel=0&amp;showinfo=0"
+                                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+                                        frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                                </div>
+                                <div class="video-description" style="margin-top: 15px; text-align: left;">
+                                    <p style="font-weight: bold; margin-bottom: 5px;">Spatial Relations Reasoning</p>
+                                    <p style="font-size: 0.85em; color: #888; font-style: italic;">This video demonstrates the model's spatial reasoning capabilities, including distance perception (nearest), position awareness (left and front), and free space localization.</p>
+                                </div>
+                            </div>
+
+                            <!-- Video 12 -->
+                            <div class="video-item">
+                                <div class="publication-video" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+                                    <iframe src="https://www.youtube.com/embed/rZ0W3ymA3EU?rel=0&amp;showinfo=0"
+                                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+                                        frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                                </div>
+                                <div class="video-description" style="margin-top: 15px; text-align: left;">
+                                    <p style="font-weight: bold; margin-bottom: 5px;">Spatial Referencing and Vacancy Detection</p>
+                                    <p style="font-size: 0.85em; color: #888; font-style: italic;">This video demonstrates the model's object referencing capability based on spatial relations and its ability to locate vacant areas in 3D space.</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section>
+            <div class="container">
+              <div class="content has-text-centered">
+                <div class="box m-5" >
+                  <div class="content has-text-centered">
+                    <h2 class="title is-3">Training & Evaluation</h2>
+                    <div class="content has-text-justified">
+                        <p class="is-size-5">
+                            We highlight the distributed training framework <strong>FlagScale</strong> developed by BAAI Framework R&D team, 
+                            and the evaluation framework <strong>FlagEvalMM</strong> developed by BAAI FlagEval team. 
+                            Both are used for RoboBrain 2.0. Many thanks to the teams for their contributions!
+                        </p>
+                    </div>
+
+              <!-- 第一张图 -->
+              <figure style="margin-bottom: 3rem;">
+                <img src="images/logo_flagscale.png" alt="flagscale" style="width: 25%;">
+                <figcaption>
+                    <strong>FlagScale</strong> is a distributed training framework designed for large-scale models, supporting efficient training and evaluation of models like RoboBrain 2.0.
+                    It provides a flexible and scalable solution for training large models across multiple GPUs and nodes.
+                </figcaption>
+              </figure>
+              <!-- 第二张图 -->
+              <figure style="margin-bottom: 3rem;">
+                <img src="images/logo_flageval.png" alt="flageval" style="width: 30%;">
+                <figcaption>
+                    <strong>FlagEvalMM</strong> is a comprehensive evaluation framework for multi-modal models, including RoboBrain 2.0.
+                    It provides a suite of benchmarks and metrics to assess the performance of multi-modal models in various tasks, ensuring robust evaluation and comparison.
+                </figcaption>
+              </figure>
+
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+</section>
+    
+    <section class="section" id="Citation">
+            <div class="container is-max-desktop content">
+                <h2 class="title">Citation</h2>
+                <p class="is-size-5">
+                    If you find our model helpful, feel free to cite it:
+                </p>
+                
+                <pre><code>@article{RoboBrain 2.0,
+    title={RoboBrain 2.0 Technical Report},
+    author={BAAI RoboBrain Team},
+    journal={arXiv preprint arXiv:2507.02029},
+    year={2025}
+    }
+@article{RoboBrain1.0,
+    title={Robobrain: A unified brain model for robotic manipulation from abstract to concrete},
+    author={Ji, Yuheng and Tan, Huajie and Shi, Jiayu and Hao, Xiaoshuai and Zhang, Yuan and Zhang, Hengyuan and Wang, Pengwei and Zhao, Mengdi and Mu, Yao and An, Pengju and others},
+    journal={arXiv preprint arXiv:2502.21257},
+    year={2025}
+}
+@article{RoboOS,
+    title={RoboOS: A Hierarchical Embodied Framework for Cross-Embodiment and Multi-Agent Collaboration},
+    author={Tan, Huajie and Hao, Xiaoshuai and Lin, Minglan and Wang, Pengwei and Lyu, Yaoxu and Cao, Mingyu and Wang, Zhongyuan and Zhang, Shanghang},
+    journal={arXiv preprint arXiv:2505.03673},
+    year={2025}
+}
+@article{zhou2025roborefer,
+    title={RoboRefer: Towards Spatial Referring with Reasoning in Vision-Language Models for Robotics},
+    author={Zhou, Enshen and An, Jingkun and Chi, Cheng and Han, Yi and Rong, Shanyu and Zhang, Chi and Wang, Pengwei and Wang, Zhongyuan and Huang, Tiejun and Sheng, Lu and others},
+    journal={arXiv preprint arXiv:2506.04308},
+    year={2025}
+}
+@article{Reason-RFT,
+    title={Reason-rft: Reinforcement fine-tuning for visual reasoning},
+    author={Tan, Huajie and Ji, Yuheng and Hao, Xiaoshuai and Lin, Minglan and Wang, Pengwei and Wang, Zhongyuan and Zhang, Shanghang},
+    journal={arXiv preprint arXiv:2503.20752},
+    year={2025}
+}
+@article{Code-as-Monitor,
+    title={Code-as-Monitor: Constraint-aware Visual Programming for Reactive and Proactive Robotic Failure Detection},
+    author={Zhou, Enshen and Su, Qi and Chi, Cheng and Zhang, Zhizheng and Wang, Zhongyuan and Huang, Tiejun and Sheng, Lu and Wang, He},
+    journal={arXiv preprint arXiv:2412.04455},
+    year={2024}
+}</code></pre>
+            </div>
+    </section>
+
+</body>
+</html>
+
+
+</body>
+</html>
