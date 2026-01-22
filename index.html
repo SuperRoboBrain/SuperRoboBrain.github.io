@@ -16,6 +16,11 @@
     <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
     <link rel="stylesheet" href="./static/css/index.css">
+    <style>
+        .section {
+            padding: 1.5rem 1.5rem !important;
+        }
+    </style>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script defer src="./static/js/fontawesome.all.min.js"></script>
@@ -31,41 +36,7 @@
             <div class="container is-max-desktop">
                 <div class="columns is-centered">
                     <div class="column has-text-centered">
-                        <h1 class="title is-2 publication-title" style="display: flex; align-items: center; justify-content: center;">
-                            <img src="images/logo.png" alt="Logo"
-                                 style="height: 3rem; margin-right: 20px; flex-shrink: 0;">
-                            <span style="display: inline-block;">
-                                RoboBrain 2.5: Depth in Sight, Time in Mind.
-                            </span>
-                        </h1>
-                        
-                        <div class="is-size-4 publication-authors">
-                            <span class="author-block">
-                                <a target="_blank" href="">BAAI RoboBrain Team</a>
-                            </span>
-                        </div>
-                        <div class="column has-text-centered">
-                            <span class="link-block">
-                                <a target="_blank" href="https://huggingface.co/collections/BAAI/robobrain25/" class="external-link button is-normal is-rounded is-dark">
-                                    <span class="icon"><i class="far fa-smile"></i></span>
-                                    <span>Hugging Face</span>
-                                </a>
-                            </span>
-                            <span class="link-block">
-                                <a target="_blank" href="https://github.com/FlagOpen/RoboBrain2.5" class="external-link button is-normal is-rounded is-dark">
-                                    <span class="icon"><i class="fab fa-github"></i></span>
-                                    <span>Code</span>
-                                </a>
-                            </span>
-                            <span class="link-block">
-                                <a target="_blank" href="https://arxiv.org/abs/2507.02029" class="external-link button is-normal is-rounded is-dark">
-                                    <span class="icon"><i class="fas fa-file-pdf"></i></span>
-                                    <span>Model Card (Coming Soon)</span>
-                                </a>
-                            </span>
-                        </div>
-
-                        <div class="is-size-5 publication-authors" style="margin-top: 20px;">
+                        <div class="is-size-5 publication-authors" style="margin-bottom: 20px;">
                             <div class="dropdown is-hoverable">
                                 <div class="dropdown-trigger">
                                   <button class="button is-rounded is-light" aria-haspopup="true" aria-controls="dropdown-menu">
@@ -88,25 +59,72 @@
                                 </div>
                             </div>
                         </div>
+                        <h1 class="title is-2 publication-title" style="display: flex; align-items: center; justify-content: center;">
+                            <img src="images/logo.png" alt="Logo"
+                                 style="height: 3rem; margin-right: 20px; flex-shrink: 0;">
+                            <span style="display: inline-block;">
+                                RoboBrain 2.5: Depth in Sight, Time in Mind.
+                            </span>
+                        </h1>
+                        
+                        <div class="is-size-4 publication-authors">
+                            <span class="author-block">
+                                <a target="_blank" href="" style="color: #6366f1; font-weight: 500;">BAAI RoboBrain Team</a>
+                            </span>
+                        </div>
+                        <div class="column has-text-centered">
+                            <span class="link-block">
+                                <a target="_blank" href="https://huggingface.co/collections/BAAI/robobrain25/" class="external-link button is-normal is-rounded is-dark">
+                                    <span class="icon"><i class="far fa-smile"></i></span>
+                                    <span>Hugging Face</span>
+                                </a>
+                            </span>
+                            <span class="link-block">
+                                <a target="_blank" href="https://github.com/FlagOpen/RoboBrain2.5" class="external-link button is-normal is-rounded is-dark">
+                                    <span class="icon"><i class="fab fa-github"></i></span>
+                                    <span>Code</span>
+                                </a>
+                            </span>
+                            <span class="link-block">
+                                <a target="_blank" href="https://arxiv.org/abs/2601.14352" class="external-link button is-normal is-rounded is-dark">
+                                    <span class="icon"><i class="fas fa-file-pdf"></i></span>
+                                    <span>Technical Report</span>
+                                </a>
+                            </span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Main Video -->
+    <section class="section" style="padding-top: 1rem; padding-bottom: 1rem;">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-four-fifths">
+                    <div class="has-text-centered" style="margin: 0;">
+                        <video autoplay controls muted loop preload="metadata" width="100%" style="max-width: 100%; border-radius: 8px;">
+                            <source src="./images/RoboBrain2.5.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <section class="section">
         <div class="container is-max-desktop">
             <div class="columns is-centered has-text-centered">
                 <div class="column is-four-fifths">
+                    <h2 class="title is-3">🚀 Overview</h2>
                     <div class="content has-text-justified">
                         <p>
                             <strong>RoboBrain-2.5</strong> is a next-generation Embodied AI foundation model that significantly evolves its predecessor's core capabilities in general perception, spatial reasoning, and temporal modeling through extensive training on high-quality spatiotemporal data. It achieves a paradigm shift in 3D Spatial Reasoning, transitioning from 2D relative points to predicting 3D coordinates with depth information, understanding absolute metric constraints, and generating complete manipulation trajectories tailored for complex tasks with physical constraints. Furthermore, it establishes a breakthrough in Temporal Value Prediction by constructing a General Reward Modeling Method that provides dense progress tracking and multi-granular execution state estimation across varying viewpoints. This empowers VLA reinforcement learning with immediate, dense feedback signals, enabling robots to achieve high task success rates and robustness in fine-grained manipulation scenarios.
                         </p>
                         <div class="has-text-centered" style="margin: 20px 0;">
-                            <img src="./images/rb25_feature.png" style="width: 100%;" alt="RoboBrain 2.5 Features" />
-                            <br>
-                            <img src="./images/rb25_result.png" style="width: 100%; margin-top: 10px;" alt="RoboBrain 2.5 Results" />
+                            <img src="./images/teaser.jpg" style="width: 100%;" alt="RoboBrain 2.5 Teaser" />
                         </div>
                     </div>
                 </div>
@@ -121,7 +139,7 @@
                     <h2 class="title is-3">🚀 Key Highlights</h2>
                     <div class="content has-text-justified">
                         
-                        <h3 class="title is-4">1. Comprehensive Upgrade in Native 3D Spatial Reasoning</h3>
+                        <h3 class="title is-4">🔥 Comprehensive Upgrade in Native 3D Spatial Reasoning</h3>
                         <p>
                             Compared to version 2.0, <strong>RoboBrain-2.5</strong> achieves a leap in spatial perception and reasoning capabilities:
                         </p>
@@ -131,7 +149,7 @@
                             <li><strong>Point to Trace:</strong> Advanced from predicting a single target point for pick-and-place to predicting a <strong>series of key points</strong> that describe the complete manipulation process (3D Spatial Trace), naturally possessing spatial planning capabilities with 3D absolute metrics.</li>
                         </ul>
 
-                        <h3 class="title is-4">2. Breakthrough in Dense Temporal Value Estimation</h3>
+                        <h3 class="title is-4">🔥 Breakthrough in Dense Temporal Value Estimation</h3>
                         <p>
                             <strong>RoboBrain-2.5</strong> makes significant progress in temporal modeling by constructing a General Reward Model (GRM):
                         </p>
@@ -141,7 +159,7 @@
                             <li><strong>Empowering VLA Reinforcement Learning:</strong> Provides real-time, dense feedback signals and rewards for VLA (Vision-Language-Action) reinforcement learning. With only <strong>one demonstration</strong>, it achieves a task success rate of <strong>95%+</strong> in complex, fine-grained manipulations.</li>
                         </ul>
 
-                        <h3 class="title is-4">3. More Powerful Core Capabilities from previous version 2.0</h3>
+                        <h3 class="title is-4">🔥 More Powerful Core Capabilities from previous version 2.0</h3>
                         <p>
                             <strong>RoboBrain 2.5</strong> also maintains the three core capabilities of version 2.0, which supports <strong>interactive reasoning</strong> with long-horizon planning and closed-loop feedback, <strong>spatial perception</strong> for precise point and bbox prediction from complex instructions, <strong>temporal perception</strong> for future trajectory estimation, and <strong>scene reasoning</strong> through real-time structured memory construction and update.
                         </p>
@@ -158,15 +176,9 @@
             <div class="container is-max-desktop">
                 <div class="columns is-centered has-text-centered">
                     <div class="column is-full">
-                        <h2 class="title is-3">
-                            <div class="text-image-container">
-                                <div>
-                                    <img src="images/video_logo.png" alt="highlight" width="40">
-                                </div>
-                                <div class="text">
-                                    <p>Demos: Dense Temporal Value Estimation</p>
-                                </div>
-                            </div>
+                        <h2 class="title is-3" style="display: flex; align-items: center; justify-content: center; gap: 10px;">
+                            <img src="images/video_logo.png" alt="highlight" width="40" style="flex-shrink: 0;">
+                            <span>Demos: Dense Temporal Value Estimation</span>
                         </h2>
                     </div>
                 </div>
@@ -179,7 +191,7 @@
         <div class="container is-max-desktop">
             <div class="columns is-centered has-text-centered">
                 <div class="column is-four-fifths">
-                    <h2 class="title is-3">Evaluation on Different Data Sources</h2>
+                    <h2 class="title is-4">Evaluation on Different Data Sources</h2>
                     <div class="content">
                         <div class="carousel results-carousel carousel-3-items">
                             <!-- item1 -->
@@ -251,7 +263,7 @@
         <div class="container is-max-desktop">
             <div class="columns is-centered has-text-centered">
                 <div class="column is-four-fifths">
-                    <h2 class="title is-3">A Challenging Real-world Rollout</h2>
+                    <h2 class="title is-4">A Challenging Real-world Rollout</h2>
                     <figure>
                         <img src="https://robo-dopamine.github.io/assets/images/funny_ood.png" alt="Challenging Real-world Rollout" style="width: 100%;">
                         <figcaption class="has-text-justified mt-3">
@@ -270,7 +282,7 @@
         <div class="container is-max-desktop">
             <div class="columns is-centered has-text-centered">
                 <div class="column is-four-fifths">
-                    <h2 class="title is-3">Real-World RL DEMOs</h2>
+                    <h2 class="title is-4">Real-World RL DEMOs</h2>
                     <div class="columns is-multiline">
                         <div class="column is-one-third">
                             <video autoplay controls muted loop preload="metadata" width="100%">
@@ -303,7 +315,7 @@
         <div class="container is-max-desktop">
             <div class="columns is-centered has-text-centered">
                 <div class="column is-four-fifths">
-                    <h2 class="title is-3">Robustness to Artificial Disturbance</h2>
+                    <h2 class="title is-4">Robustness to Artificial Disturbance</h2>
                     <figure>
                         <img src="https://robo-dopamine.github.io/assets/images/analysis.png" alt="Robustness to Artificial Disturbance" style="width: 100%;">
                         <figcaption class="has-text-justified mt-3">
@@ -328,15 +340,9 @@
             <div class="container is-max-desktop">
                 <div class="columns is-centered has-text-centered">
                     <div class="column is-full">
-                        <h2 class="title is-3">
-                            <div class="text-image-container">
-                                <div>
-                                    <img src="images/video_logo.png" alt="highlight" width="40">
-                                </div>
-                                <div class="text">
-                                    <p>Demos: Native 3D Spatial Reasoning</p>
-                                </div>
-                            </div>
+                        <h2 class="title is-3" style="display: flex; align-items: center; justify-content: center; gap: 10px;">
+                            <img src="images/video_logo.png" alt="highlight" width="40" style="flex-shrink: 0;">
+                            <span>Demos: Native 3D Spatial Reasoning</span>
                         </h2>
                     </div>
                 </div>
@@ -349,7 +355,7 @@
         <div class="container is-max-desktop">
             <div class="columns is-centered has-text-centered">
                 <div class="column is-four-fifths">
-                    <h2 class="title is-3"><i>TraceSpatial-Bench</i> Results</h2>
+                    <h2 class="title is-4"><i>TraceSpatial-Bench</i> Results</h2>
                     <div class="content has-text-justified">
                         <p>
                             <b>
@@ -402,7 +408,7 @@
     <!-- RoboTwin 2.0 Execution Demo -->
     <section class="section">
         <div class="container is-max-desktop">
-            <h2 class="title is-3 has-text-centered">RoboTwin 2.0 Execution Demo</h2>
+            <h2 class="title is-4 has-text-centered">RoboTwin 2.0 Execution Demo</h2>
             <div class="content has-text-justified">
                 <p>
                     <b>
@@ -449,7 +455,7 @@
     <!-- Spatial Tracing in Cluttered Scenes -->
     <section class="section">
         <div class="container is-max-desktop">
-            <h2 class="title is-3 has-text-centered">Spatial Tracing in Cluttered Scenes</h2>
+            <h2 class="title is-4 has-text-centered">Spatial Tracing in Cluttered Scenes</h2>
              <div class="content has-text-justified">
                  <p><b>Visualizations of spatial tracing in complex, cluttered environments using <strong>RoboBrain 2.5</strong>.</b></p>
             </div>
@@ -469,7 +475,7 @@
         <div class="container is-max-desktop">
             <div class="columns is-centered has-text-centered">
                 <div class="column is-four-fifths">
-                    <h2 class="title is-3">More Real-world Demos</h2>
+                    <h2 class="title is-4">More Real-world Demos</h2>
                     <div class="content has-text-justified">
                          <p>
                             <b>
@@ -498,15 +504,9 @@
             <div class="container is-max-desktop">
                 <div class="columns is-centered has-text-centered">
                     <div class="column is-full">
-                        <h2 class="title is-3">
-                            <div class="text-image-container">
-                                <div>
-                                    <img src="images/video_logo.png" alt="highlight" width="40">
-                                </div>
-                                <div class="text">
-                                    <p>Demos: Spatial Reasoning & Core Capabilities</p>
-                                </div>
-                            </div>
+                        <h2 class="title is-3" style="display: flex; align-items: center; justify-content: center; gap: 10px;">
+                            <img src="images/video_logo.png" alt="highlight" width="40" style="flex-shrink: 0;">
+                            <span>Demos: Spatial Reasoning & Core Capabilities</span>
                         </h2>
 
                         <!-- Video Grid Container -->
@@ -718,19 +718,12 @@
                     If you find our model helpful, feel free to cite it:
                 </p>
                 
-                <pre><code>@article{tan2025robo,
-  title={Robo-Dopamine: General Process Reward Modeling for High-Precision Robotic Manipulation},
-  author={Tan, Huajie and Chen, Sixiang and Xu, Yijie and Wang, Zixiao and Ji, Yuheng and Chi, Cheng and Lyu, Yaoxu and Zhao, Zhongxia and Chen, Xiansheng and Co, Peterson and others},
-  journal={arXiv preprint arXiv:2512.23703},
-  year={2025}
-}
-
-@article{zhou2025robotracer,
-  title={RoboTracer: Mastering Spatial Trace with Reasoning in Vision-Language Models for Robotics},
-  author={Zhou, Enshen and Chi, Cheng and Li, Yibo and An, Jingkun and Zhang, Jiayuan and Rong, Shanyu and Han, Yi and Ji, Yuheng and Liu, Mengzhen and Wang, Pengwei and others},
-  journal={arXiv preprint arXiv:2512.13660},
-  year={2025}
-}
+                <pre><code>@article{tan2026robobrain25depthsight,
+    title={RoboBrain 2.5: Depth in Sight, Time in Mind}, 
+    author={Huajie Tan and Enshen Zhou and Zhiyu Li and Yijie Xu and Yuheng Ji and Xiansheng Chen and Cheng Chi and Pengwei Wang and Huizhu Jia and Yulong Ao and Mingyu Cao and Sixiang Chen and Zhe Li and Mengzhen Liu and Zixiao Wang and Shanyu Rong and Yaoxu Lyu and Zhongxia Zhao and Peterson Co and Yibo Li and Yi Han and Shaoxuan Xie and Guocai Yao and Songjing Wang and Leiduo Zhang and Xi Yang and Yance Jiao and Donghai Shi and Kunchang Xie and Shaokai Nie and Chunlei Men and Yonghua Lin and Zhongyuan Wang and Tiejun Huang and Shanghang Zhang},
+    journal={arXiv preprint arXiv:2601.14352},
+    year={2026}
+}    
 
 @article{RoboBrain2.0TechnicalReport,
     title={RoboBrain 2.0 Technical Report},
@@ -746,6 +739,21 @@
     year={2025}
 }
 
+@article{tan2025robo,
+    title={Robo-Dopamine: General Process Reward Modeling for High-Precision Robotic Manipulation},
+    author={Tan, Huajie and Chen, Sixiang and Xu, Yijie and Wang, Zixiao and Ji, Yuheng and Chi, Cheng and Lyu, Yaoxu and Zhao, Zhongxia and Chen, Xiansheng and Co, Peterson and others},
+    journal={arXiv preprint arXiv:2512.23703},
+    year={2025}
+  }
+
+@article{zhou2025robotracer,
+    title={RoboTracer: Mastering Spatial Trace with Reasoning in Vision-Language Models for Robotics},
+    author={Zhou, Enshen and Chi, Cheng and Li, Yibo and An, Jingkun and Zhang, Jiayuan and Rong, Shanyu and Han, Yi and Ji, Yuheng and Liu, Mengzhen and Wang, Pengwei and others},
+    journal={arXiv preprint arXiv:2512.13660},
+    year={2025}
+  }
+  
+
 @article{Reason-RFT,
     title={Reason-rft: Reinforcement fine-tuning for visual reasoning},
     author={Tan, Huajie and Ji, Yuheng and Hao, Xiaoshuai and Lin, Minglan and Wang, Pengwei and Wang, Zhongyuan and Zhang, Shanghang},
@@ -758,14 +766,7 @@
     author={Tan, Huajie and Chi, Cheng and Chen, Xiansheng and Ji, Yuheng and Zhao, Zhongxia and Hao, Xiaoshuai and Lyu, Yaoxu and Cao, Mingyu and Zhao, Junkai and Lyu, Huaihai and others},
     journal={arXiv preprint arXiv:2510.26536},
     year={2025}
-  }
-
-@article{zhou2025roborefer,
-    title={RoboRefer: Towards Spatial Referring with Reasoning in Vision-Language Models for Robotics},
-    author={Zhou, Enshen and An, Jingkun and Chi, Cheng and Han, Yi and Rong, Shanyu and Zhang, Chi and Wang, Pengwei and Wang, Zhongyuan and Huang, Tiejun and Sheng, Lu and others},
-    journal={arXiv preprint arXiv:2506.04308},
-    year={2025}
-}</code></pre>
+  }</code></pre>
             </div>
     </section>
 
